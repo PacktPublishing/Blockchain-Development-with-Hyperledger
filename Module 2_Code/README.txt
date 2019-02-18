@@ -1,1 +1,1 @@
-Chapter 12,13, and 18 has no code files
+Chapter 12,13, and 18 have no code files
