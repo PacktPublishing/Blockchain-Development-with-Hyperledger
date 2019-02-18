@@ -1,0 +1,29 @@
+language: node_js
+node_js:
+- '8'
+dist: trusty
+before_install: |
+    date
+    ./.travis/before-install.sh
+    date
+script: ./.travis/script.sh
+deploy:
+    provider: script
+    script: ./.travis/deploy.sh
+    skip_cleanup: true
+    on:
+        all_branches: true
+after_failure: |
+    tail -n +1 -- /home/travis/.npm/_logs/*-debug.log
+sudo: required
+services:
+  - docker
+notifications:
+  webhooks:
+    urls:
+      - https://chat.hyperledger.org/hooks/BG3PeSerMSWRDSceE/GPCnCSqxMoyfqaTvLePSGudWjoCBwAcCT6bAKYRjK2sKSCM9
+    on_success: always # default: always
+    on_failure: always # default: always
+    on_start: always   # default: never
+    on_cancel: always # default: always
+    on_error: always # default: always

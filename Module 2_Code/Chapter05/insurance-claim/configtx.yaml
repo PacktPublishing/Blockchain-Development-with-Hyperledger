@@ -1,0 +1,90 @@
+# Blockchain Quick Start Guide   - Insurance Claim
+
+################################################################################
+#
+#   Profile
+#
+#   - define ICOrgsOrdererGenesis and ICOrgsChannel
+#
+################################################################################
+Profiles:
+
+    ICOrgsOrdererGenesis:
+        Orderer:
+            <<: *OrdererDefaults
+            Organizations:
+                - *OrdererOrg
+        Consortiums:
+            InsuranceClaimConsortium:
+                Organizations:
+                    - *Org1
+                    - *Org2
+                    - *Org3
+    ICOrgsChannel:
+        Consortium: InsuranceClaimConsortium
+        Application:
+            <<: *ApplicationDefaults
+            Organizations:
+                - *Org1
+                - *Org2
+                - *Org3
+
+################################################################################
+#
+#   Section: Organizations
+#
+#   - This section defines the different organizational identities which will
+#   be referenced later in the configuration.
+#
+################################################################################
+Organizations:
+
+    - &OrdererOrg
+        Name: OrdererOrg
+        ID: OrdererMSP
+        MSPDir: crypto-config/ordererOrganizations/ic.com/msp
+
+    - &Org1
+        Name: Org1MSP
+        ID: Org1MSP
+        MSPDir: crypto-config/peerOrganizations/org1.ic.com/msp
+
+        AnchorPeers:
+            - Host: peer0.org1.ic.com
+              Port: 7051
+    - &Org2
+        Name: Org2MSP
+        ID: Org2MSP
+        MSPDir: crypto-config/peerOrganizations/org2.ic.com/msp
+
+        AnchorPeers:
+            - Host: peer0.org2.ic.com
+              Port: 7051          
+    - &Org3
+        Name: Org3MSP
+        ID: Org3MSP
+        MSPDir: crypto-config/peerOrganizations/org3.ic.com/msp
+
+        AnchorPeers:
+            - Host: peer0.org3.ic.com
+              Port: 7051               
+
+Orderer: &OrdererDefaults
+
+    OrdererType: solo
+    Addresses:
+        - orderer.ic.com:7050
+    BatchTimeout: 2s
+    BatchSize:
+        MaxMessageCount: 10
+        AbsoluteMaxBytes: 20 MB
+        PreferredMaxBytes: 512 KB
+
+    Kafka:
+        Brokers:
+            - 127.0.0.1:9092
+    Organizations:
+
+Application: &ApplicationDefaults
+
+    Organizations:

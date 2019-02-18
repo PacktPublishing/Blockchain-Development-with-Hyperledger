@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>CrowdFunding</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-push-2">
+          <h1 class="text-center">CrowdFunding</h1>
+          <hr/>
+          <br/>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-md-6">
+              <div class="row">
+                  <ul class="nav nav-tabs">
+                      <li class="active"><a data-toggle="tab" href="#fund">Fund</a></li>
+                      <li><a data-toggle="tab" href="#contribution">Contribution</a></li>
+                      <li><a data-toggle="tab" href="#menu2">Owner</a></li>
+                    </ul>
+                    
+                    <div class="tab-content">
+                      <div id="fund" class="tab-pane fade in active">
+                          <div class="panel-body">
+                              <div class="row">
+                                <div class="col-lg-12">
+                                    <form id="fund-form" method="post" role="form" style="display: block;">
+                                      <div class="form-group row">
+                                          <div class="row">
+                                              <div class="col-lg-12">
+                                                  <input type="range" name="ageInputName" id="ageInputId" value="0" min="1" max="100" oninput="ageOutputId.value = ageInputId.value">
+                                                  <div style="display: inline;"><output name="ageOutputName" id="ageOutputId">0</output> <span>ether</span></div>
+              
+                                              </div>
+                                            </div>
+                                       </div>
+                                      <div class="form-group">
+                                        <div class="row">
+                                          <div class="col-lg-12">
+                                              <button type="button" id="fundBtn" class="btn btn-primary pull-left">Submit</button>
+                                          </div>
+                                        </div>
+                                      </div>                               
+                                  </form>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                      <div id="contribution" class="tab-pane fade">
+                          <div class="panel-body">
+                              <div class="row">
+                                <div class="col-lg-12">
+                                    <form id="fund-form" method="post" role="form" style="display: block;">
+                                      <div class="form-group row">
+                                          <div class="row">
+                                              <div class="col-lg-12">
+                                                <span><input type="number" id="contributionInput" class="right-space" name="contribution"><button type="button" id="contributionBtn" class="btn btn-sm btn-success">Submit</button></span>       
+                                              </div>
+                                            </div>
+                                            <br/>
+                                            <div class="row">
+                                                <table class="table table-hover">
+                                                    <tr>
+                                                        <th scope="row">address</th>
+                                                        <td><span class="text-info" id="contr-address"></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                         <th scope="row">amount</th>
+                                                        <td><span class="text-info" id="contr-amount"></span></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                       </div>                              
+                                  </form>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                      <div id="menu2" class="tab-pane fade">
+                        <h3>CrowdFunding owner</h3>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" id="checkGoal" class="btn btn-success">CheckGoal</button>
+                            <button type="button" id="destroy" class="btn btn-danger">Destroy</button>
+                          </div>
+                      </div>
+                    </div>
+
+                </div>
+
+          </div>
+          <div class="col-md-6">
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Accounts</label>
+                <select class="form-control" id="accts">
+                </select>
+              </div>
+              <table class="table table-hover table-striped">
+                  <thead style="background-color:#4791EB; color: white">
+                    <tr>
+                      <th scope="col" colspan="2" class="text-center">Project</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">address</th>
+                      <td><span class="text-info" id="address"></span></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">name</th>
+                      <td><span class="text-info" id="name"></span></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">website</th>
+                        <td><span class="text-info" id="website"></span></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">totalRaised</th>
+                        <td><span class="text-info" id="totalRaised"></span></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">minimumToRaise</th>
+                        <td><span class="text-info" id="minimumToRaise"></span></td>
+                    </tr>   
+                    <tr>
+                        <th scope="row">currentBalance</th>
+                        <td><span class="text-info" id="currentBalance"></span></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">deadline</th>
+                        <td><span class="text-info" id="deadline"></span></td>
+                    </tr>   
+                    <tr>
+                        <th scope="row">completeAt</th>
+                        <td><span class="text-info" id="completeAt"></span></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">status</th>
+                        <td><strong><span class="text-info" id="status"></span></strong></td>
+                    </tr>                                                                                
+                  </tbody>
+                </table>
+                <div id="displayMsg" style="color: red" class="container">
+
+                </div>
+          </div>
+        <div class="clearfix"></div>
+    
+        <br /><br />
+      </div>
+    </div>
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script data-require="moment.js@2.10.2" data-semver="2.10.2" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+   
+    <script src="js/app.js"></script>
+  </body>
+</html>
