@@ -6,11 +6,6 @@ This Learning Path is your easy reference for exploring and building blockchain 
 By the end of this Learning Path, you'll be able to build and deploy your own decentralized applications by handling the key pain points encountered in the blockchain life cycle.
 
 
-This Learning Path includes content from the following Packt products:
-* Blockchain Quick Start Guide by Xun (Brian) Wu and Weimin Sun
-* Hands-On Blockchain with Hyperledger by Nitin Gaur et al.
-
-
 ## What you will learn:
 * Understand why decentralized applications are necessary
 * Develop and test a decentralized application with Hyperledger Fabric and Hyperledger Composer
